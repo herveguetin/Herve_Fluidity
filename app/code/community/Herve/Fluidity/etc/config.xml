@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Herve
+ * @package     Herve_Fluidity
+ * @copyright   Copyright (c) 2013 Hervé Guétin (http://www.herveguetin.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Herve_Fluidity>
+            <version>1.0.0.0</version>
+        </Herve_Fluidity>
+    </modules>
+    <global>
+        <blocks>
+            <fluidity>
+                <class>Herve_Fluidity_Block</class>
+            </fluidity>
+        </blocks>
+        <helpers>
+            <fluidity>
+                <class>Herve_Fluidity_Helper</class>
+            </fluidity>
+        </helpers>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <fluidity>
+                    <file>fluidity.xml</file>
+                </fluidity>
+            </updates>
+        </layout>
+    </frontend>
+    <default>
+        <fluidity>
+            <foundation_version>5.1.1</foundation_version>
+        </fluidity>
+    </default>
+</config>

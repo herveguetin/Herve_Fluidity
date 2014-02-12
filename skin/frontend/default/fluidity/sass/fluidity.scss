@@ -1,0 +1,75 @@
+@import 'foundation-5.1.1/normalize';
+@import 'foundation-5.1.1/foundation';
+
+/**
+ * @category    Herve
+ * @package     Herve_Fluidity
+ * @copyright   Copyright (c) 2013 Hervé Guétin (http://www.herveguetin.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+/* Additional and overload styles ========================================================== */
+
+/* Global styles */
+body {
+    margin-top: 1em;
+    margin-bottom: 5em;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/* Layouts */
+.inline {
+    display: inline;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+/* Styles */
+.nobackground {
+    background: none;
+}
+
+.noborder {
+    border: none;
+}
+
+/* Tools */
+.hidden {
+    position: absolute;
+    top: -999em;
+    left: -999em;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -999em;
+    overflow: hidden;
+}
+
+/* Foundation fixes ======================================================================== */
+.panel.callout .pricing-table a {
+    color: inherit;
+}
+
+.f-dropdown.content li {
+    cursor: auto;
+}
+
+/* Magento Modules ========================================================================= */
+
+/* Catalog search */
+.search-autocomplete {
+    z-index:999;
+}
+
+.search-autocomplete li {
+    cursor: pointer;
+}
+.search-autocomplete li .amount {
+    float:right;
+}

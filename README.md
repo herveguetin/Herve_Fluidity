@@ -1,0 +1,1 @@
+Magento responsive theme based on Foundation

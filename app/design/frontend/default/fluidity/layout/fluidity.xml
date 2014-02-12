@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Herve
+ * @package     Herve_Fluidity
+ * @copyright   Copyright (c) 2013 Hervé Guétin (http://www.herveguetin.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<layout version="0.1.0">
+
+    <!--
+    Default layout, loads most of the pages
+    -->
+    <default>
+
+        <reference name="top.links">
+            <!-- Remove customer related top links and replace with split button -->
+            <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/></action>
+            <block type="core/template" name="customer.top.links" template='fluidity/customer/header/top-links.phtml'>
+                <action method="setPosition"><position>1000</position></action>
+            </block>
+            <action method="addLinkBlock"><blockName>customer.top.links</blockName></action>
+        </reference>
+
+        <reference name="top.menu">
+            <!-- Replace core catalog navigation with one that fits to Foundation's Top Bar markup -->
+            <action method="unsetChild"><name>catalog.topnav</name></action>
+            <block type="fluidity/page_html_topmenu" name="catalog.topnav" template="page/html/topmenu.phtml"/>
+        </reference>
+
+        <reference name="small.top">
+            <!-- Add a mini-cart for small screens -->
+            <block type="checkout/cart_sidebar" name="small.top.cart" template="checkout/cart/sidebar.phtml" before="-">
+                <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <block type="core/text_list" name="small.top.cart.extra_actions" as="extra_actions" translate="label" module="checkout">
+                    <label>Shopping Cart Top Extra Actions</label>
+                </block>
+            </block>
+        </reference>
+
+        <reference name="small.bottom">
+            <!-- Add a newsletter subscription for small screens -->
+            <block type="newsletter/subscribe" name="small.bottom.newsletter" template="newsletter/subscribe.phtml"/>
+        </reference>
+
+    </default>
+
+    <!--
+    Load this update on every page when customer is logged in
+    -->
+    <customer_logged_in>
+
+        <reference name="top.links">
+            <!-- Remove customer related top links and replace with split button -->
+            <action method="removeLinkByUrl"><url helper="customer/getLogoutUrl"/></action>
+        </reference>
+
+    </customer_logged_in>
+
+    <!--
+    Load this update on every page when customer is logged out
+    -->
+    <customer_logged_out>
+
+        <reference name="top.links">
+            <!-- Remove customer related top links and replace with split button -->
+            <action method="removeLinkByUrl"><url helper="customer/getLoginUrl"/></action>
+        </reference>
+
+    </customer_logged_out>
+</layout>
